@@ -62,3 +62,46 @@ const circle = Circle1(1) //circle{radius: 1, draw: f()}
 
 Circle.call({}, 1) //new Circle(1)
 Circle.apply({}, [1, 2, 3]) //new Circle(1, 2, 3)
+
+Function and Array are objects
+
+Value Types/Primitive Types --- Reference Types
+Number                          Object
+String                          Function
+Boolean                         Array
+Symbol                          
+undefined
+null
+
+primitive type are independent of each other
+let x = 10;
+let y = x;
+x = 20;
+//x = 20; y = 10;
+
+let x = {value: 10};
+let y = x;
+x.value = 20;
+//x = {value: 20}; y = {value: 20};
+
+Primitives are copied by their value
+Objects are copied by their reference
+
+let number = 10;
+function increase(number){
+    number++;
+} 
+increase(number);
+console.log(number);
+//number = 10
+//2 copies of number, number inside function is independent of the one outside of function
+
+let obj = {value: 10};
+function increase(obj){
+    obj++;
+} 
+increase(obj);
+console.log(obj);
+
+
+
