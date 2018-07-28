@@ -25,4 +25,40 @@ Remove new and then check it will give Window object fror browser and Global for
 - this point to object
 - return object
 
+Circle.constructor
+f Function(){} //Function constructor
+
 every object has a property called "constructor" which is reference to the function which is used to create object
+
+another.constructor
+f Circle(radius){
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw');
+    }
+}
+
+circle.constructor
+f Object(){} //object constructor function
+
+let x = {} //let x = new Object();
+
+Native buit-in constructor
+new Object(); //{}
+new String(); //'', "", ``
+new Boolean(); //true, false
+new Number(); //1, 2, 3
+
+Functions are 0bjects
+
+const Circle1 new Function('radius', `
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw');
+    }
+`)
+
+const circle = Circle1(1) //circle{radius: 1, draw: f()}
+
+Circle.call({}, 1) //new Circle(1)
+Circle.apply({}, [1, 2, 3]) //new Circle(1, 2, 3)
