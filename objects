@@ -136,3 +136,11 @@ for(let key in circle){
 const keys = Object.keys(circle); //Array of keys //['radius', 'draw']
 
 if('radius' in circle) //to check the existense
+
+
+Abstraction
+//create private variables
+function Circle(radius){
+    let defaultLocation = {x: 0, y: 0}; //accessible only within the function scope
+    let defaultFunc = function(radius){} //accessible only within the function scope 
+}
