@@ -103,5 +103,36 @@ function increase(obj){
 increase(obj);
 console.log(obj);
 
+Adding/Removing Properties
 
+function Circle(radius){
+    this.radius = radius;
+    this.draw = function(){
+        console.log('draw');
+    }
+}
+const circle = new Circle(10);
+circle.location = {x: 1};
+//Circle{
+    draw: f(),
+    location: {x: 1},
+    radius: 10
+}
 
+circle['location'] = {x: 1};
+const propertyName = 'location';
+const propertyName = 'location-location';
+const propertyName = 'location location';
+circle[propertyName] = {x: 1};
+
+delete circle[propertyName];
+
+Enumerating
+for(let key in circle){
+    console.log(key, circle[key];
+}
+//radius draw
+
+const keys = Object.keys(circle); //Array of keys //['radius', 'draw']
+
+if('radius' in circle) //to check the existense
