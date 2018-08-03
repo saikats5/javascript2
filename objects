@@ -143,4 +143,18 @@ Abstraction
 function Circle(radius){
     let defaultLocation = {x: 0, y: 0}; //accessible only within the function scope
     let defaultFunc = function(radius){} //accessible only within the function scope 
+
+    Object.defineProperty(this, 'defaultLocation', {
+        get: function(){
+            return defaultLocation;
+        },
+        set: function(value){
+            if(!value.x || !value.y){
+                throw new Error('Invalid Location');
+                defaultLocation = value;
+            }
+        }
+    })
 }
+
+circle.defaultLocation; //without bracket is a computed property
