@@ -1,0 +1,16 @@
+Prototype is equivalent to parent
+
+let x = {}
+
+__proto__ is a deprecated parent under which all properties are present including constructor property which is referenced to a function which is used to create the object
+
+every object directly or indirectly connected to Objectbase, objectbase don't have __proto__ or prototype, it's the base
+
+Single instance of Objectbase all objects are referenced to it
+
+Object.getPrototypeOf(x) === Object.getPrototypeOf(y) //true
+x.__proto__ === y.__proto__ //true //should be used as it is deprecated
+
+Javascript use prototypical inheritance to search for property up above the chain
+
+myArray --> arrayBase --> Objectbase
