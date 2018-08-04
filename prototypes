@@ -26,4 +26,37 @@ Object.defineProperty(person, 'name', {
     configurable: false //delete person.name // ['name']
 })
 
+let obj = {};
+obj.__proto__ = Object.prototype //prototype is a property inside object constructor
+
+let arr = [];
+arr.__proto__ = Array.prototype //prototype is a property inside object constructor
+
+const c1 = new Circle(1);
+const c2 = new Circle(1);
+
+Circle.prototype === c1.__proto__
+
+// Instance members
+
+// Prototype members
+Circle.prototype.draw = function(){}
+//Circle{radius: 1, __proto__:draw:f()}
+
+// Overidding the native property
+Circle.prototype.toString = function(){
+    return '';
+}
+
+//using this prototype property/methods can be called inside functions and vice-versa
+
+Prototype properties are available everywhere as it's pass by referenced
+
+Object.keys(c1); //returns instance members only
+for(ley key in c1); //returns instance as well as prototype members
+c1.hasOwnProperty('radius'); //true
+c1.hasOwnProperty('draw'); //false
+
+//Not a good practice to modify the built-in objects
+
 
