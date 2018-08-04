@@ -14,3 +14,16 @@ x.__proto__ === y.__proto__ //true //should be used as it is deprecated
 Javascript use prototypical inheritance to search for property up above the chain
 
 myArray --> arrayBase --> Objectbase
+
+let person = {name: "Saikat"};
+let objectBase = Object.getPrototypeOf(person);
+let descriptor = Object.getOwnPropertyDescriptor(objectBase, 'toString');
+//{value: f, configurable: true, enumerable: false, writable: true}
+
+Object.defineProperty(person, 'name', {
+    writable: false, //person.name = "Sam" //will not change the value //default true
+    enumerable: false, //Object.keys(person) //[] //default true
+    configurable: false //delete person.name // ['name']
+})
+
+
