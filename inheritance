@@ -4,7 +4,23 @@ Circle.prototype = Object.create(Object.prototype); //before inheritance
 Circle.prototype = Object.create(Shape.prototype); //after inheritance
 Circle.prototype.constructor = Circle;
 
+Alternatative for code optimisation
+function extend(Child, Parent){
+    Child.prototype = Object.create(Parent.prototype); //after inheritance
+    Child.prototype.constructor = Child;
+}
+
 new Circle.prototype.constructor(1) = new Circle(1)
 
 Circle.prototype = Object.create(Shape.prototype); //remove constructor from Circle base
+
+function Circle(radius, color){
+    Shape(color); //this will not work, it will set this to window Object
+    new Shape(color); //create another object and set property to that object
+    Shape.call(this, color);
+    this.radius = radius;
+}
+
+Method overidding
+//child can overide the parent prototype method call by defining it after the prototype resetting
 
