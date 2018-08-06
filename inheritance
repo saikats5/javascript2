@@ -24,3 +24,26 @@ function Circle(radius, color){
 Method overidding
 //child can overide the parent prototype method call by defining it after the prototype resetting
 
+Polymorphism
+//many from
+
+Composition
+//Favour composition over inheritance
+
+Mixins
+const canEat = {
+    eat: function(){
+        this.hunger--;
+    }
+} 
+const canWalk = {
+    walk: function(){}
+}
+const person = Object.assign({}, canEat, canWalk); //assign --> feature in ES6 to copy object
+
+function Person(){}
+Object.assign(Person.prototype, canEat, canWalk);
+
+function mixin(target, ...sources){ //rest operator
+    Object.assign(target, ...sources); //spread operator as assign doesn't accept array
+}
