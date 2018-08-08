@@ -134,9 +134,18 @@ set radius(value){
 Inheritance
 
 class Shape{
+    constructor(color){}
     move(){}
 }
 
 class Circle extends Shape{
+    constructor(color, radius){
+        super(color);
+        this.radius = radius;
+    }
+    move(){
+        super.move(); //reuse the parent method
+    } //Method overridding
     draw(){}
 }
+const c = new Circle('blue', 1);
