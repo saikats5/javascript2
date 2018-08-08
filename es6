@@ -68,12 +68,75 @@ JS engine runs class body in 'strict' mode by default, no need to add 'use stric
 this._radius //_ is a convention to describe private variable
 
 const _radius = Symbol(); //create new identifier everytime, 
+const _draw = Symbol();
 class Circle{
     constructor(radius){
         this.radius = radius;
         this['radius'] = radius;
         this[_radius] = radius;
     }
+    [_draw](){} //[] //ES6 computed property name, expression inside [] will be executed and then the value will be returned
 }
 
 Symbol() === Symbol() //false
+
+const c = new Circle(1);
+console.log(c);
+Circle{
+    Symbol(): 1
+}
+console.log(Object.getOwnPropertyNames(c)); //[]
+const key = Object.getOwnPropertySymbols(c)[0];
+console.log(c[key]); //1
+
+Weakmaps
+
+const _radius = new WeakMap();
+const _move = new WeakMap();
+
+const privateProps = new WeakMap();
+
+//unable to see the methods in the Circle object in console
+
+class Circle{
+    constructor(radius){
+        _radius.set(this, radius); //key/value pair, first parameter key should be object
+        _move.set(this, function(){ // ()=>{ //this -> Circle{}
+            console.log('move', this); //this -> undefined
+        })
+
+        privateProps.set(this, {
+            radius: radius,
+            move: ()=>{}
+        })
+    }
+    draw(){
+        console.log(_radius.get(this));
+    }
+    draw(){
+        _move.get(this)();
+    }
+    privateProps.get(this).radius;
+}
+
+
+Getters & Setters
+get radius(){
+    return _radius.get(this);
+}
+//c.radius
+set radius(value){
+    if(value <= 0) throw new Error('invalid radius');
+    _radius.set(this, value);
+}
+//c.radius = 10
+
+Inheritance
+
+class Shape{
+    move(){}
+}
+
+class Circle extends Shape{
+    draw(){}
+}
