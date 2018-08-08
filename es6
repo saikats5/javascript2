@@ -118,7 +118,7 @@ class Circle{
     }
     privateProps.get(this).radius;
 }
-
+_radius.get(c);
 
 Getters & Setters
 get radius(){
@@ -149,3 +149,39 @@ class Circle extends Shape{
     draw(){}
 }
 const c = new Circle('blue', 1);
+
+Modules
+
+No modules in ES5
+
+Popular module formats
+-AMD -- Browser Asynchronous module definition
+-CommonJS -- Node.JS
+-UMD -- Browser/Node   Universal module definition
+
+ES6 Modules -- Browser
+
+Cohesion - related things together
+
+CommonJS
+module.exports.Circle = Circle;
+require('./circle');
+
+ES6
+export
+import {Circle} from './circle'; //without webpack this will throw error, so work arount is to put type = "module" in script tag
+
+Browser app need transpiler and bundler
+
+Transpiler -> Translator + Compiler
+Modern JS -> BABEL -> ES5
+
+Bundler -> combien multiple JS files into a single file
+
+babel-cli --> tool that can be run from command line
+babel-core --> core JS converting code implemented
+babel-preset-env --> every js feature has a plugin starting from ES6, combination of all the plugins
+
+package.json script --> "babel": "babel --presets env index.js -o build/index.js"
+webpack -w
+
