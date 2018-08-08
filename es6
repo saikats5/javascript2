@@ -64,3 +64,16 @@ draw(); //'this' is not associated with any object it's associated with standalo
 
 'use strict'; //draw() //undefined //it will restrict 'this' to point to global object, restrict from altering the global namespace
 JS engine runs class body in 'strict' mode by default, no need to add 'use strict' explicitly
+
+this._radius //_ is a convention to describe private variable
+
+const _radius = Symbol(); //create new identifier everytime, 
+class Circle{
+    constructor(radius){
+        this.radius = radius;
+        this['radius'] = radius;
+        this[_radius] = radius;
+    }
+}
+
+Symbol() === Symbol() //false
