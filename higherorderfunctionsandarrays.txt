@@ -1,0 +1,64 @@
+//forEach
+//filter
+//map
+//sort
+//reduce
+
+for(let i = 0; i < companies.length; i++){
+	console.log(companies[i]);
+}
+
+forEach doesn't return anything while others do
+
+companies.forEach(function(company, index, companiesArray){
+	console.log(company);
+})
+
+return undefined
+
+//filter
+let ages = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+let canDrink = [];
+for(let i = 0; i < ages.length; i++){
+	if(ages[i] >= 21){
+		canDrink.push(ages[i]);
+	}
+}
+
+const canDrink = ages.filter(function(age){
+	if(age >= 21){
+		return true;
+		//return age;
+	}
+});
+
+const canDrink = ages.filter(age => age >= 21);
+
+returns an array, it understands true and false, return value from array only
+
+//map
+
+const testMap = ages.map(function(age, index, ageArray){
+	return age;
+})
+
+returns array but can return manipulated value return anything, not basis of array, on basis of value
+
+//sort
+const testSort = ages.sort(function(c1,c2){
+	if(c1.start > c2.start){
+		return 1;
+	}else{
+		return -1;
+	}
+})
+
+//reduce
+let ageSum = 0;
+for(let i = 0; i < ages.length; i++){
+	ageSum += ages[i];
+}
+const ageSum = ages.reduce(function(total, age){
+	return total + age;
+},0);
+
