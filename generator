@@ -1,0 +1,24 @@
+function* bears(){
+    yield 'aaa';
+    yield 'bbb';
+    console.log('executing');
+    return 'done';
+}
+//console.log(bears());
+var test = bears();
+bear.next();
+bear.next();
+bear.next();
+
+next() will yoeld that line only and stop will not execute the rest untill we call .next() again for next line/statement
+
+function* bears(){
+    var kind = yield 'aaa';
+    yield kind + 'bbb';
+    console.log(kind);
+    return 'done';
+}
+bear.next().value; //aaa
+bear.next('ccc'.value); //ccc bbb
+//ccc
+bear.next(); //done
