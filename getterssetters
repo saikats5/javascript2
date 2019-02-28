@@ -3,7 +3,7 @@ const person = {
     lastname: 'saha',
     get fullname(){
         return `${person.firstname} ${person.lastname}`
-    }
+    },
     set fullname(value){
         const parts = value.split(' ');
         this.firstname = parts[0];
