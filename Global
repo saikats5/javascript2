@@ -1,0 +1,11 @@
+var greeting = "Hello";
+function helloWorld(){
+    this.name = "world";
+    punct = "!"; // without var becomes global variable, but we have to execute it the only it will become global variable otherwise throw error
+}
+
+//greeting //"Hello"
+//name //"World"
+//punct //Uncaught ReferenceError: punct is not defined
+helloWorld();
+//punct //"!"
