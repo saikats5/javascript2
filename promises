@@ -1,0 +1,5 @@
+it is a design pattern ie., Q and Bluebird
+
+Deferred Object // interface contains promise property both are different property
+Promise Object // 2 properties status/value --> pending/undefined
+
