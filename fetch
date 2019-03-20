@@ -15,3 +15,5 @@ const newPost = post => {
         .then(res=>console.log(res))
         .catch(error=>console.log(`${error}`))
 }
+
+//Not supported by IE

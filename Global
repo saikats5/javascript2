@@ -9,3 +9,22 @@ function helloWorld(){
 //punct //Uncaught ReferenceError: punct is not defined
 helloWorld();
 //punct //"!"
+
+Avoid global variables
+
+->variable with all global functions and then execution all will be accessible from global
+->put everything inside a function and then use addEventListener load with this init callback now everything inside the function scope i.e., init not global but init is still global
+->(function()()) - self-invoking function once during beginning no more eventlistner needed and we have to put () around function as function is anonymous and js will throw error as it starts with function same as var as it will try to allocate a memory
+->if we have to access some of the functions later, assign self-invoking function to a variable with prvate and returned value and only return value will be accessible from outside with the global variable
+
+scope is lexically
+
+if called a varible no declared in chain throw error is not defined
+
+var func = function(){
+    for(var i;i<5;i++){ // 1,2,3,4,5
+    for(let i;i<5;i++){ // 1,2,3,4 i is not defined
+        console.log(i);
+    }
+    console.log(i);
+}
