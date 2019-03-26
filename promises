@@ -3,3 +3,42 @@ it is a design pattern ie., Q and Bluebird
 Deferred Object // interface contains promise property both are different property
 Promise Object // 2 properties status/value --> pending/undefined
 
+Promise is a js object with properties and methods
+
+const hasError = false;
+function doAsyncTools(){
+	let promise = new Promise((resolvea, rejecta)=>{
+		setTimeout(()=>{
+			console.log('1111');
+			if(hasError){
+				reject('error')
+			}else{
+				resolve('done');
+			}
+		},1000)
+	})
+	return promise;
+}
+
+doAsyncTools().then(
+(val)=>console.log("SUCCESS"),
+(err)=>console.log("ERROR")
+)
+
+let promise = Promise.resolve('success');
+promise.then((val)=>console.log(val));
+
+let promise = Promise.resolve('done')
+.then(
+	(val)=>{
+		console.log(val); // throw new Error('fail'); // will run line 41, the last one if line 37 not available
+		return 'done2';
+	},
+	(err)=>console.log(err);
+)
+.then(
+	(val)=>console.log(val),
+	(err)=>console.log(err)
+)
+.catch((err)=>console.log(err))
+
