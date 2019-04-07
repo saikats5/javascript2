@@ -1,0 +1,29 @@
+"use strict"; // string // in older browser they don't support use/strict keyword so they throw error, so to ignore it as a string it has been used as a string for old browser
+
+// not strict mode
+function newCode(){
+    "use strict";
+    // strict mode
+}
+test = 1;
+console.log(window.test); // 1 // always use var as misspell can cause an issue to create property on global space
+
+var let = 1; // uncaught syntaxerror: unexpected strict mode reserved word // let is keyword reserved for future version of javascript
+
+The delete keyword deletes both the value of the property and the property itself. After deletion, the property cannot be used before it is added back again. The delete operator is designed to be used on object properties. It has no effect on variables or functions.
+
+var foo = 1;
+delete foo; // throw error
+
+function moo(arg){
+    delete arg; // throw error
+}
+delete moo; // throw error
+
+var eval = 1; // throw error
+
+eval("2 + 2); // 4
+eval("var a = 1"); // a = 1 // in non strict mode // on using strict mode variable doesn't leaks out of eval newCode
+a is not defined error on strict mode
+
+
