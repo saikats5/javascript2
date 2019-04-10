@@ -1,0 +1,6 @@
+HTTP STATUS --> https://httpstatuses.com
+
+Http headers are metadata which browsers attach to http request, IP address, type of browser
+
+CORS - Cross Origin Resource Sharing
+Chrome extension to bypass CORS issue - Allow-Control-Allow-Origin
