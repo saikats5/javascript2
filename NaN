@@ -1,0 +1,7 @@
+typeof(NaN) // "number"
+
+NaN compared to anything is false even NaN == NaN // false
+
+isNaN(NaN) // true
+isNaN() // true
+it tries to convert to Number -- Number('A') // NaN 
