@@ -1,0 +1,10 @@
+var name = "John";
+var change = "var name = 'Doe';";
+
+eval(change);
+console.log(name); // Doe
+
+using 'use strict';
+the effects are not leaked out of the eval block
+
+console.log(name); // John

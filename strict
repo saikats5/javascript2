@@ -26,4 +26,23 @@ eval("2 + 2); // 4
 eval("var a = 1"); // a = 1 // in non strict mode // on using strict mode variable doesn't leaks out of eval newCode
 a is not defined error on strict mode
 
+it stops 'this' in function inside a function to point to global object and make it undefined, to solve the issue use var self = this;
+
+'use strict';
+function abc(){
+	console.log(this); // undefined // abc.call({}) // Object{} //abc.call(1) // 1
+}
+
+var abc = {
+	checkThis: function(){
+		function checkOther(){
+			console.log(this); // abc{}
+		}
+		checkOther.call(this);
+	}
+}
+
+abc.checkThis.call(); // window in non 'use strict';
+abc.checkThis.call(); // blank/undefined in 'use strict';
+
 
