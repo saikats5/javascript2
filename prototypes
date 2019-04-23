@@ -60,3 +60,14 @@ c1.hasOwnProperty('draw'); //false
 //Not a good practice to modify the built-in objects
 
 
+var a = {
+	kind: 'human'
+}
+var b = {};
+b.__proto__ = animal;
+a.isPrototypeOf(b) // true
+a.kind = "tiger"
+b.kind // "tiger" // look ups are dynamic // it creates it's own property of kind rather than looking up
+
+var b = Object.create(a); // it creates a new empty object and assign a to its prototype
+var b = Object.create(a, {food: {value: "mango"}}); b {food: "mango"}
