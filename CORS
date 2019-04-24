@@ -1,0 +1,18 @@
+CORS --. Cross Origin Resourse Sharing
+allows you to break the same origin policy of a browser
+
+Access-Control-Allow-Origin 
+foo.com/foo.com // origin should be same for req/res
+foo.com/* // everybody is allowed
+foo.com/moo.com // browser blocks
+
+to enable CORS, browser will always send a origin and expects the server to send header with Access-Control-Allow-Origin 
+
+-->
+origin: foo.com
+Access-Control-Request-Method: PUT
+<--
+Access-Control-Allow-Origin: foo.com
+Access-Control-Request-Method: PUT
+
+// test-cors.org

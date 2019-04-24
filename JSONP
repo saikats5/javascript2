@@ -1,0 +1,2 @@
+To solve CORS issue
+it works with only GET(NO --> PUT,POST,DELETE)
