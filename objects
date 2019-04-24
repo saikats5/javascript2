@@ -38,6 +38,28 @@ f Circle(radius){
     }
 }
 
+function Person(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.fullName = function(){
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+var per = new Person('John', 'Doe');
+var per = {};
+Person.call(per, 'John', 'Doe');
+
+per.__proto__ = Person.Prototype // {} --> constructor and __proto
+per.firstName = 'Kevin'; // even if we change the value of firstName but if it is used inside a function it will not change as it will hold the variable it passed that means 'John' as it creates closure and for that we have to remove 'this'
+
+function Person(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.fullName = function(){
+		return firstName + ' ' + lastName; // private
+	}
+}
+
 circle.constructor
 f Object(){} //object constructor function
 
