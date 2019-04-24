@@ -180,3 +180,27 @@ function Circle(radius){
 }
 
 circle.defaultLocation; //without bracket is a computed property
+
+function Person(firstName, lastName){
+	this.firstName = firstName;
+	this.lastName = lastName;
+}
+
+function Personal(honor, firstName, lastName){
+	Person.call(this, firstName, lastName); // this is not inheritance it is just executing Person inside the Personal context i.e., instead of copy/paste firstname and lastname we can make use of it inside Personal // base class
+	this.honor = honor;
+}
+
+var Person = {
+	full_name: function(){
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+var a = Object.create(Person); // a's is a object and it's prototype is Person // a.__proto__ --> Person
+
+function PersonFactory(firstName, lastName){
+	var person = Object.create(Person);
+	person.firstName = firstName;
+	person.lastName = lastName;
+	return person;
+}
