@@ -16,3 +16,5 @@ Access-Control-Allow-Origin: foo.com
 Access-Control-Request-Method: PUT
 
 // test-cors.org
+
+the browser sends what's called a "pre-flight" options request first to check to see if it can send a POST request later on. //OPTIONS //Method --> then POST

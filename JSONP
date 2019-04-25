@@ -1,2 +1,20 @@
 To solve CORS issue
 it works with only GET(NO --> PUT,POST,DELETE)
+
+<script src="jsonp.js"></script>
+<script>
+	function callbackFunction(json){
+		console.log(json);
+	}
+</script>
+
+
+=====server======
+callbackFunction([
+	{
+		"id": 1,
+		"firstName": "John"
+	}
+])
+
+Not visible in XHR tab of console, visible in All/JS tab
