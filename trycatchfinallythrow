@@ -1,0 +1,63 @@
+const person = {
+    firstname: 'saikat',
+    lastname: 'saha',
+    get fullname(){
+        return `${person.firstname} ${person.lastname}`
+    },
+    set fullname(value){
+        //if(typeof value !== 'string') return;
+
+        if(typeof value !== 'string')
+            throw new Error('Value is not a string');
+
+        const parts = value.split(' ');
+        if(parts.length !== 2)
+            throw new Error('Enter a first and last name');
+        this.firstname = parts[0];
+        this.lastname = parts[1];
+    }
+};
+
+try {
+    person.fullname = null;
+}
+catch (e) {
+    alert(e);
+}
+
+person.fullname = null; //setter
+person.fullname; //getter
+
+const e = new Error(); //Error
+throw e; //exception
+
+
+lines after throw statement will not get executed and jump out of method control will move to catch block
+
+try {} // test block of code for error
+catch {} // handle the error
+throw  {} // let's us create custom error
+finally {} // execute code after try/catch regardless of the result
+
+try {
+	console.log('start of try runs'); // execute
+	unicycle; // execute
+	console.log('end of try runs -- never reached'); // no execution
+} catch(err) {
+	console.log('error has occured' + err); // Error: ReferenceError: unicycle is not defined
+} finally {
+	console.log('this will always run'); // this will always run
+}
+console.log('always execute');
+
+try/catch handles only run time error no parsing error, so missing closing braces will not work
+
+
+try {
+	if(!user.name){
+		throw new SyntaxError("Incomplete data"); // Error.name --> SyntaxError, Error.message --> Incomplete data
+	}
+} catch(e) {
+	console.log('ERROR is' + e); // ERROR is: SyntaxError: Incomplete data
+}
+
